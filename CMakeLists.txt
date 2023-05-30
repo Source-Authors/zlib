@@ -335,6 +335,9 @@ if(ZLIB_BUILD_STATIC)
         PROPERTIES
             EXPORT_NAME ZLIBSTATIC
             PUBLIC_HEADER "${ZLIB_PUBLIC_HDRS}")
+    set_target_properties(zlibstatic
+        PROPERTIES
+            MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif(ZLIB_BUILD_STATIC)
 
 if(ZLIB_INSTALL)
