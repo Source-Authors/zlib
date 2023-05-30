@@ -220,6 +220,8 @@ if(ZLIB_BUILD_STATIC)
     set_target_properties(
         zlibstatic PROPERTIES EXPORT_NAME ZLIBSTATIC OUTPUT_NAME
                                                      z${zlib_static_suffix})
+    set_target_properties(
+        zlibstatic PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif(ZLIB_BUILD_STATIC)
 
 if(ZLIB_INSTALL)
